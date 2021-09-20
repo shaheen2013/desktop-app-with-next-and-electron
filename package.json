@@ -1,0 +1,43 @@
+{
+  "name": "desktop-app-with-next-and-electron",
+  "version": "0.1.0",
+  "private": true,
+  "main": "main.js",
+  "build": {
+    "icon": "public/favicon.png",
+    "productName": "Desktop App With Next and Electron",
+    "files": [
+      "build/**/*",
+      "main.js"
+    ],
+    "win": {},
+    "linux": {},
+    "mac": {}
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && next export -o build",
+    "start": "next start",
+    "telemetry:status": "next telemetry status",
+    "telemetry:enable": "next telemetry enable",
+    "telemetry:disable": "next telemetry disable",
+    "electron": "wait-on http://localhost:3000 && electron .",
+    "electron-dev": "concurrently \"yarn dev\" \"yarn electron\"",
+    "preelectron-pack": "yarn build",
+    "electron-pack": "electron-builder"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.1",
+    "electron": "^14.0.1",
+    "electron-builder": "^22.11.7",
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.2",
+    "next": "11.1.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "wait-on": "^6.0.0"
+  },
+  "dependencies": {
+    "electron-serve": "^1.1.0"
+  }
+}
